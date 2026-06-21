@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced URL Shortener</title>
+    <!-- Google Fonts: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Material Symbols -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        <h1>URL Shortener</h1>
+        <button id="themeToggle" class="icon-btn" onclick="toggleTheme()" title="Toggle Dark Mode">
+            <span class="material-symbols-rounded">dark_mode</span>
+        </button>
+    </div>
+
+    <div class="input-group">
+        <label for="longUrl">URL to Shorten</label>
+        <div class="input-wrapper">
+            <span class="material-symbols-rounded icon">link</span>
+            <input type="url" id="longUrl" placeholder="https://example.com" required>
+        </div>
+    </div>
+
+    <div class="input-group">
+        <label for="expirationDate">Expiration Date (Optional)</label>
+        <div class="input-wrapper">
+            <span class="material-symbols-rounded icon">event</span>
+            <input type="datetime-local" id="expirationDate">
+        </div>
+    </div>
+
+    <button class="primary-btn" onclick="shortenURL()">
+        <span class="material-symbols-rounded">rocket_launch</span>
+        Shorten URL
+    </button>
+
+    <div id="result" class="result-container hidden"></div>
+
+    <div class="divider"></div>
+
+    <div class="section-header">
+        <h2>Saved URLs</h2>
+        <div class="actions">
+            <button class="secondary-btn" onclick="exportCSV()" title="Export to CSV">
+                <span class="material-symbols-rounded">download</span>
+            </button>
+        </div>
+    </div>
+
+    <div class="search-container">
+        <span class="material-symbols-rounded icon">search</span>
+        <input type="text" id="searchInput" placeholder="Search URLs..." onkeyup="filterURLs()">
+    </div>
+
+    <div id="urlList" class="url-list">
+        <!-- URL items will be injected here -->
+    </div>
+</div>
+
+<!-- QR Code Library -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>
